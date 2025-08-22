@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiple Canonical Issues Test</title>
+</head>
+<body>
+    <h1>Test Multiple Issues</h1>
+    
+    <!-- ❌ WRONGPLACE: canonical en body -->
+    <link rel="canonical" href="https://example.com/page1" />
+    
+    <div>
+        <p>Contenido de la página</p>
+        
+        <!-- ❌ DUPLICATE + WRONGPLACE: segundo canonical también en body -->
+        <link rel="canonical" href="https://example.com/page2" />
+    </div>
+    
+    <footer>
+        <p>Esta página debería generar CANONICAL_DUPLICATE y CANONICAL_WRONGPLACE</p>
+    </footer>
+</body>
+</html>
