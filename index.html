@@ -1,27 +1,23 @@
-=<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test CANONICAL_WRONGPLACE</title>
-    <!-- El canonical debería estar aquí en <head>, pero lo pondremos mal en <body> -->
+    <title>Multiple Canonical Issues Test</title>
 </head>
 <body>
-    <header>
-        <h1>Página de Prueba - Canonical Wrong Place</h1>
-    </header>
+    <h1>Test Multiple Issues</h1>
     
-    <main>
-        <p>Esta página tiene el canonical tag en el lugar incorrecto (dentro del body).</p>
+    <!-- ❌ WRONGPLACE: canonical en body -->
+    <link rel="canonical" href="https://example.com/page1" />
+    
+    <div>
+        <p>Contenido de la página</p>
         
-        <!-- ❌ CANONICAL MAL UBICADO - debería estar en <head> -->
-        <link rel="canonical" href="https://example.com/correct-canonical-url" />
-        
-        <p>El servicio debería detectar este error como CANONICAL_WRONGPLACEk./p>
-    </main>
+        <!-- ❌ DUPLICATE + WRONGPLACE: segundo canonical también en body -->
+        <link rel="canonical" href="https://example.com/page2" />
+    </div>
     
     <footer>
-        <p>Test page para validación canonical</p>
+        <p>Esta página debería generar CANONICAL_DUPLICATE y CANONICAL_WRONGPLACE</p>
     </footer>
 </body>
 </html>
